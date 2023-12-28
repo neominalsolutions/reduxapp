@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'; // redux yapısının react uygulamasında kullanılması için içerisinde Provider,useSelector, useDispatch gibi hooklar barındıran paket
 import { store } from './store/store';
 import { BrowserRouter } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 /*
   2.Adım
@@ -19,11 +20,17 @@ import { BrowserRouter } from 'react-router-dom';
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
 );
+
+// 1. adım
+const client = new QueryClient(); // client store
+
 root.render(
 	<>
 		<BrowserRouter>
 			<Provider store={store}>
-				<App />
+				<QueryClientProvider client={client}>
+					<App />
+				</QueryClientProvider>
 			</Provider>
 		</BrowserRouter>
 	</>
