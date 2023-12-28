@@ -10,15 +10,12 @@ function ServerStateReactQuery() {
 
 	// Hooklar sadece ana function içinden çalıştırılabilirler.
 
-	// if(index !== 1){
-
-	// }
-
 	const onMyClick = (nm: number) => {
 		setIndex(nm);
 	};
 
 	// const loadData = () => {
+	// method if blokları içinde hook kullanamayız
 	//        const result = useQuery({
 	// 						queryKey: ['data', index],
 	// 						queryFn: () => {
@@ -34,7 +31,7 @@ function ServerStateReactQuery() {
 	// 	});
 
 	// useEffect(() => {
-
+	// Hook içinde hook çağıramayız
 	// }, [index]);
 
 	// 2.adım
@@ -56,6 +53,7 @@ function ServerStateReactQuery() {
 				console.log('hata olsun olması çalışan kod blogu', data, error);
 				// socket.terminate();
 			},
+
 			//refetchInterval: 3000, // her 3 snyede bir veri güncelle, bayat datayı güncelle (pooling)
 			retry: false, // eğer api call yapılrıken timeout düşerse yada bağlantı kesilirse arka arkaya 3 kere istek at.
 			// retryDelay: 3000, // 3s bekletip yeni 3 kez üst üste istek
