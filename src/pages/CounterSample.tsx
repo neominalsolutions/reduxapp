@@ -14,7 +14,7 @@ function CounterSample() {
 	// client state değişmesi için tetitikleme yaptığımız yapı
 	const dispatch = useDispatch();
 	// useSelector ile state çağırdık
-	const count = useSelector((store: RootState) => store.counterState.count);
+	const counterState = useSelector((store: RootState) => store.counterState);
 
 	const onIncrement = () => {
 		dispatch(increment());
@@ -35,7 +35,7 @@ function CounterSample() {
 	return (
 		<div>
 			<h1>Read/Write Component</h1>
-			Sayaç : {count}
+			Sayaç : {counterState.count}
 			<br></br>
 			<h1>Counter State Güncelleme</h1>
 			<hr></hr>

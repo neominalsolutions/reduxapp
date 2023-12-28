@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { fetchProductsState } from './store/slices/ProductSlice';
 import { AppDispatch } from './store/store';
 import ServerStateReactQuery from './pages/ServerStateReactQuery';
+import CartSummary from './pages/CartSummary';
 
 function App() {
 	// Hangi uygulama 1 sefere mahsus bir daha load olana kadar buradaki component asla girmez bu sebeple verilerimizi 1 sefer çekip burada schedule edebiliriz.
@@ -21,7 +22,7 @@ function App() {
 	// }, 5000); // 5s sonra yada 5 dk bir
 
 	useEffect(() => {
-		// dispatch(fetchProductsState());
+		dispatch(fetchProductsState());
 		// web socket dinleyerek data bir değişim olduğu durumda onMessage eventi içinde bunu tetikle.
 		// Mobile uygulamada ise bu tarz veri çekme işlemlerin splash screen kullanırız.
 	}, []);
@@ -43,6 +44,10 @@ function App() {
 			path: '/serverStateReactQuery',
 			Component: ServerStateReactQuery,
 		},
+		{
+			path: '/cartSummary',
+			Component: CartSummary,
+		},
 	]);
 
 	return (
@@ -51,7 +56,8 @@ function App() {
 				<Link to="/counterStateWriteAndRead">Counter State Write And Read</Link>{' '}
 				<Link to="/counterStateReadOnly">Counter State Read Only</Link>{' '}
 				<Link to="/serverStateWithRedux">Server State With Redux</Link> {'  '}
-				<Link to="/serverStateReactQuery">Server State React Query</Link>
+				<Link to="/serverStateReactQuery">Server State React Query</Link> {'  '}
+				<Link to="/cartSummary">Cart Summary</Link>
 				<br></br>
 				<hr></hr>
 				{routes}

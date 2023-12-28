@@ -3,13 +3,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { CounterReducer } from './slices/CounterSlice';
 import { ProductReducer } from './slices/ProductSlice';
+import { CartReducer } from './slices/CartSlice';
 
 // store uygulama içerisinde kullanılan reducer tanımlarını bağladığımız yer
 // reducer üzerinden state okuma işlemi yapıyoruz
 export const store = configureStore({
 	reducer: {
 		productState: ProductReducer,
-		counterState: CounterReducer, // 4. aşama uygula için tanımlanan sliceları reducer olarak store tanıttık.
+		counterState: CounterReducer,
+		cartState: CartReducer,
 	},
 });
 

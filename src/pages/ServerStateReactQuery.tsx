@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { fetchProducts } from '../network/ProductApi';
 import { ProductDto } from '../store/slices/ProductSlice';
+import { useDispatch } from 'react-redux';
+import { CartItem, addToCart } from '../store/slices/CartSlice';
 
 function ServerStateReactQuery() {
 	// key değerine göre refetch etme, yada çekilen verinin cache bozma gibi işlemler için kullanılıyor.
 
 	const [index, setIndex] = useState<number>(1);
+	const dispatch = useDispatch();
 
 	// Hooklar sadece ana function içinden çalıştırılabilirler.
 
@@ -93,6 +96,14 @@ function ServerStateReactQuery() {
 							<button
 								onClick={() => {
 									//dispath Sepete ekle
+									dispatch(
+										addToCart({
+											id: item.ProductID,
+											quantity: 1,
+											listPrice: item.UnitPrice,
+											productName: item.ProductName,
+										} as CartItem)
+									);
 								}}
 							>
 								Sepete Ekle
