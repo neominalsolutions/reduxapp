@@ -1,8 +1,7 @@
-import React, { useEffect, useMemo } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { ProductDto, fetchProductsState } from '../store/slices/ProductSlice';
-import { AppDispatch, RootState } from '../store/store';
 import moment from 'moment';
+import { useSelector } from 'react-redux';
+import { ProductDto } from '../store/slices/ProductSlice';
+import { RootState } from '../store/store';
 
 function ServerStateWithRedux() {
 	const { isError, isFinished, data, loading, error, fetched, loadTime } =
