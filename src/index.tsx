@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'; // redux yapısının react uygulamasında kullanılması için içerisinde Provider,useSelector, useDispatch gibi hooklar barındıran paket
 import { store } from './store/store';
+import { BrowserRouter } from 'react-router-dom';
 
 /*
   2.Adım
@@ -20,9 +21,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
 	<>
-		<Provider store={store}>
-			<App />
-		</Provider>
+		<BrowserRouter>
+			<Provider store={store}>
+				<App />
+			</Provider>
+		</BrowserRouter>
 	</>
 );
 
